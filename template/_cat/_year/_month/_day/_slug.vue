@@ -1,5 +1,5 @@
 <template>
-<PostRoute :title="title" :date="date" :modified="modified" :slug="slug" :tags="tags" :summary="summary" :ogimage="ogimage" :category="category">
+<PostRoute :title="title" :links="links" :date="date" :modified="modified" :slug="slug" :tags="tags" :summary="summary" :ogimage="ogimage" :category="category">
   {html}
 </PostRoute>
 </template>

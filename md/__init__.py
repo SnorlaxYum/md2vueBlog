@@ -1,8 +1,10 @@
 import markdown
+import re
 from slugify import slugify
 from conf import tag_slug_format, post_slug_format
 from posts import parseGivenDate
 from datetime import datetime
+from bs4 import BeautifulSoup
 
 
 def markdownOpen():
@@ -68,5 +70,10 @@ def formatMdMeta(mdMeta, cat_slug, cat, content_html):
     # do the extra for the inside of the post
     content_meta['html'] = content_html
     content_meta['category'] = cat
+
+    # to find all h1~hxx titles and return {link: `#id`, title: innerHTML, level: name}
+    soup = BeautifulSoup(content_html, 'html.parser')
+    content_meta['links'] = [{'link': '#%s' % ele.attrs['id'], 'title': ele.string, 'level': ele.name}
+                             for ele in soup.find_all(re.compile("h[0-9]+"))]
 
     return content_meta

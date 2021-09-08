@@ -219,6 +219,7 @@ def posts_files(posts_all):
                  'modified': modi, 'tags': infoNow['tags'],
                  'slug': infoNow['slug'],
                  'category': infoNow['category'],
+                 'links': infoNow['links'],
                  'ogimage': ogimage, 'summary': infoNow['summary']})).replace(
             '{html}', infoNow['html'])
 
