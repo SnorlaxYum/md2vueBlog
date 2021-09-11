@@ -73,7 +73,7 @@ def formatMdMeta(mdMeta, cat_slug, cat, content_html):
 
     # to find all h1~hxx titles and return {link: `#id`, title: innerHTML, level: name}
     soup = BeautifulSoup(content_html, 'html.parser')
-    content_meta['links'] = [{'link': '#%s' % ele['id'], 'title': ele.string, 'level': ele.name}
+    content_meta['links'] = [{'link': '#%s' % ele['id'], 'title': ''.join([st for st in ele.strings]), 'level': ele.name}
                              for ele in soup.find_all(re.compile("h[0-9]+"))]
     # link: internal ones to <nuxt-link to="/path">link string</nuxt-link>
     # extarnal ones to <a href="xxx" target="_blank">asd</a>
