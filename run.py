@@ -3,10 +3,7 @@ import os
 from slugify import slugify
 from json import dumps
 import collections
-try:
-    from urllib.parse import urlparse, urljoin
-except ImportError:
-    from urlparse import urlparse, urljoin
+from urllib.parse import urlparse, urljoin
 from time import time
 
 from md import markdownOpen, formatMdMeta
