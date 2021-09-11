@@ -14,7 +14,7 @@ TZ = timezone("Asia/Chongqing")
 
 class AtomGen(FeedGenerator):
     def __init__(self, title, description, link, language):
-        super().__init__()
+        super(FeedGenerator, self).__init__()
         self.title(title)
         self.description(description)
         self.author(FEEDAUTHOR)
@@ -30,7 +30,7 @@ class AtomGen(FeedGenerator):
                   updated='',
                   content='',
                   order='append'):
-        entry = super().add_entry(order=order)
+        entry = super(FeedGenerator, self).add_entry(order=order)
         # print(entry)
         entry.title(titl)
         entry.link(href=link)
@@ -50,7 +50,7 @@ class AtomGen(FeedGenerator):
 
     def atom_file(self, path):
         makedirs(dirname(path), exist_ok=True)
-        super().atom_file(path)
+        super(FeedGenerator, self).atom_file(path)
 
 
 def addEntryToFeed(post, feed, date, modified=''):
