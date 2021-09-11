@@ -4,9 +4,9 @@ from slugify import slugify
 from json import dumps
 import collections
 try:
-    from urllib.parse import urlparse
+    from urllib.parse import urlparse, urljoin
 except ImportError:
-    from urlparse import urlparse
+    from urlparse import urlparse, urljoin
 from time import time
 
 from md import markdownOpen, formatMdMeta

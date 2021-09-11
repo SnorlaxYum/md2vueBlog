@@ -2,7 +2,10 @@ from datetime import datetime
 from feedgen.feed import FeedGenerator
 from pytz import timezone
 from conf import SITEURL, FEEDAUTHOR
-from urllib.parse import urljoin
+try:
+    from urllib.parse import urljoin
+except ImportError:
+    from urlparse import urljoin
 from os import makedirs
 from os.path import dirname
 
