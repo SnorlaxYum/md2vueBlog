@@ -14,6 +14,6 @@ post_temp_file = join(CURDIR, 'template/_cat/_year/_month/_day/_slug.vue')
 cat_feed_slug_path_format = './%s/atom.xml'
 cat_feed_path_format = join(static_dir, cat_feed_slug_path_format)
 post_slug_format = "/{cat}/{year}/{month}/{day}/{slug}"
-tag_slug_format = "/tags/{slug}"
+tag_slug_format = "/posts/tags/{slug}"
 tags_slug = '/posts/tags'
 tags_feed_slug = 'tags/atom.xml'
