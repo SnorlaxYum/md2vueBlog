@@ -121,7 +121,7 @@ def tags_files(tags):
     # tags
     # {"atom": "https://snorl.ax/tags/atom.xml", "tags": {"isso": {"length": 4, "slug": "/tags/isso"},}}
 
-    tagsPathNow = os.path.join(post_output_directory, 'tags', 'index.vue')
+    tagsPathNow = os.path.join(post_output_directory, tags_slug, 'index.vue')
     tagsContent = getTemp(tags_temp_file).replace('{data}', dumps(
         {'atom': urljoin(SITEURL, tags_feed_slug), 'tags': tags_list}))
 

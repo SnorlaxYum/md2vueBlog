@@ -1,7 +1,8 @@
 <template lang="pug">
   article.tags
     header Tags
-      feed-link(:link="atom")
+      div.f-right
+        feed-link(:link="atom")
     content
       ul
         li(v-for='tag_info, tag of tags')
