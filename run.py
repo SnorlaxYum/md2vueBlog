@@ -269,10 +269,11 @@ def posts_files(posts_all):
     all_recent = posts_all[:5]
     for post in all_recent:
         addEntryToFeed(post, all_feed, posts_pubDate[post['slug']], posts_modDate[post['slug']])
-    # rss generation for recent posts
-    all_feed_path = os.path.join(static_dir, 'atom.xml')
-    all_feed.atom_file(all_feed_path)
-    print("Wrote to %s" % all_feed_path)
+    # rss generation for recent posts (only when there're more than 1 categories)
+    if len(posts.keys()) > 1:
+        all_feed_path = os.path.join(static_dir, 'atom.xml')
+        all_feed.atom_file(all_feed_path)
+        print("Wrote to %s" % all_feed_path)
 
 a = time()
 
