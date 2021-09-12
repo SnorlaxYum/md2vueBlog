@@ -73,8 +73,9 @@ def tags_files(tags):
     tags = collections.OrderedDict(
         sorted(tags.items(), key=lambda kv: -len(kv[1]['posts'])))
     tags_list = {}
+    tags_feed_path_rel = tags_feed_slug.lstrip('/')
     # init feed for tags
-    tags_feed_path = os.path.join(static_dir, tags_feed_slug)
+    tags_feed_path = os.path.join(static_dir, tags_feed_path_rel)
     tags_id = urljoin(SITEURL, tags_slug)
     tags_feed = AtomGen("Tags - %s" %
                         SITENAME, "The tags in %s" % SITENAME, tags_id, 'en')
@@ -110,6 +111,7 @@ def tags_files(tags):
         # }
         tagPath = os.path.join(post_output_directory, "{}.vue".format(tag.strip('/')))
         tagData = tags[tag]
+        tagData['tags'] = tags_slug
         tagContent = getTemp(tag_temp_file).replace('{data}', dumps(tagData))
         writeToVue(tagPath, tagContent)
         print("Wrote to {}".format(tagPath))
@@ -121,7 +123,7 @@ def tags_files(tags):
     # tags
     # {"atom": "https://snorl.ax/tags/atom.xml", "tags": {"isso": {"length": 4, "slug": "/tags/isso"},}}
 
-    tagsPathNow = os.path.join(post_output_directory, tags_slug, 'index.vue')
+    tagsPathNow = os.path.join(post_output_directory, tags_slug.lstrip('/'), 'index.vue')
     tagsContent = getTemp(tags_temp_file).replace('{data}', dumps(
         {'atom': urljoin(SITEURL, tags_feed_slug), 'tags': tags_list}))
 
@@ -259,7 +261,8 @@ def posts_files(posts_all):
         # }
         catPath = os.path.join(post_output_directory, '{}/index.vue'.format(cat_slug))
         catData = {'name': cat, 'atom': urljoin(
-            SITEURL, cat_feed_slug_path), 'posts': posts[cat]}
+            SITEURL, cat_feed_slug_path), 'posts': posts[cat],
+            'tags': tags_slug}
         catContent = getTemp(cat_temp_file).replace('{data}', dumps(catData))
         writeToVue(catPath, catContent)
 

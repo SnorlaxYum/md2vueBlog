@@ -1,5 +1,5 @@
 <template lang="pug">
-cat-page(:name="name" :atom="atom" :posts="posts" :isTag="false")
+cat-page(:name="name" :atom="atom" :posts="posts" :isTag="false" :tags="tags")
 </template>
 <script>
 const CatPage = () => import('~/routeComponents/PostListPage')
