@@ -29,6 +29,10 @@ def markdownOpen():
             'linenums_style': 'pymdownx-inline',
             'guess_lang': True
         },
+        'pymdownx.magiclink': {
+            'repo_url_shorthand': True,
+            'social_url_shorthand': True
+        },
         'pymdownx.superfences':
         {'disable_indented_code_blocks': True}})
 
