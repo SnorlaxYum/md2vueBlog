@@ -19,6 +19,7 @@ def markdownOpen():
                                          'pymdownx.emoji',
                                          'pymdownx.extra',
                                          'pymdownx.tilde',
+                                         'pymdownx.magiclink',
                                          'pymdownx.smartsymbols',
                                          'tables',
                                          'nl2br'],
