@@ -13,6 +13,7 @@ def markdownOpen():
                                          'meta',
                                          'footnotes',
                                          'toc',
+                                         'pymdownx.keys',
                                          #    'codehilite',
                                          'pymdownx.highlight',
                                          'attr_list',
